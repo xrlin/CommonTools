@@ -4,6 +4,10 @@
     font-size: 20px;
 }
 
+.header {
+    padding: 0 24px;
+}
+
 layout__content {
     padding: 0;
 }
