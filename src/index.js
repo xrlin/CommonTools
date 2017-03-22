@@ -4,7 +4,9 @@ import './index.css';
 // 1. Initialize
 const app = dva();
 
-app.model(require("./models/urlText"));
+app.model(require("./models/URLText"));
+
+app.model(require("./models/MarkdownText"));
 
 app.model(require("./models/JsonText"));
 

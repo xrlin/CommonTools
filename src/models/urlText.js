@@ -3,7 +3,7 @@ function fixedEncodeURIComponent (str) {
 }
 
 export default {
-  namespace: 'urlText',
+  namespace: 'URLText',
   state: {encodedText: '', decodedText: ''},
   reducers: {
     'encode'(state) {

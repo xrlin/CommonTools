@@ -6,26 +6,26 @@ import styles from './UrlConverter.css';
 function UrlConverter({dispatch, encodedText, decodedText}) {
   function decode() {
     dispatch({
-      type: 'urlText/decode',
+      type: 'URLText/decode',
     });
   }
 
   function encode() {
     dispatch({
-      type: 'urlText/encode',
+      type: 'URLText/encode',
     });
   }
 
   function updateEncodedText(value) {
     dispatch({
-      type: 'urlText/updateEncodedText',
+      type: 'URLText/updateEncodedText',
       payload: value
     });
   }
 
   function updateDecodedText(value) {
     dispatch({
-      type: 'urlText/updateDecodedText',
+      type: 'URLText/updateDecodedText',
       payload: value
     });
   }
@@ -42,10 +42,10 @@ function UrlConverter({dispatch, encodedText, decodedText}) {
   );
 }
 
-function mapStateToProps({urlText}) {
+function mapStateToProps({URLText}) {
   return {
-    encodedText: urlText.encodedText,
-    decodedText: urlText.decodedText
+    encodedText: URLText.encodedText,
+    decodedText: URLText.decodedText
   };
 }
 

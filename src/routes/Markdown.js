@@ -3,14 +3,20 @@ import { connect } from 'dva';
 import styles from './Markdown.css';
 import MarkdownComponent from '../components/MarkdownComponent'
 
-function Markdown() {
+function Markdown({dispatch, markdownText}) {
+  function updateMarkdownText(e) {
+    dispatch({
+      type: 'MarkdownText/updateMarkdownText',
+      payload: e.target.value
+    });
+  }
   return (
-    <MarkdownComponent />
+    <MarkdownComponent updateMarkdownTextFunc={updateMarkdownText} markdownText={markdownText} />
   );
 }
 
-function mapStateToProps() {
-  return {};
+function mapStateToProps({MarkdownText}) {
+  return {markdownText: MarkdownText.markdownText};
 }
 
 export default connect(mapStateToProps)(Markdown);
