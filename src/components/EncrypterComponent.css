@@ -1,3 +1,23 @@
+.buttons-wrapper > button {
+    width: 154px;
+}
 
-.normal {
+.buttons-wrapper > input[type=text] {
+    width: 154px;
+    margin-bottom: 1rem;
+}
+
+.buttons-wrapper div[class*=ant-btn-group] > button[class*=ant-btn]:first-child:not(:last-child) {
+    width: 126px !important;
+    height: 29px;
+}
+
+.buttons-wrapper div[class*=ant-btn-group] > button[class*=ant-btn]:last-child {
+    width: 28px;
+    height: 29px;
+}
+
+.dropdown--block {
+    display: block;
+    margin-bottom: 1rem;
 }

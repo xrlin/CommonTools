@@ -11,3 +11,8 @@
 layout__content {
     padding: 0;
 }
+
+button.button--block{
+    display: block;
+    margin-bottom: 1rem;
+}

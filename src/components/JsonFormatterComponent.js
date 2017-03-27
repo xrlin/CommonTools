@@ -1,8 +1,8 @@
 import React from 'react';
-import {Input, message} from 'antd';
+import {Input, Row, Col} from 'antd';
 import JSONTree from 'react-json-tree';
 import ApplicationLayout from './ApplicationLayout';
-import styles from './JsonFormatterComponent.css';
+import styles from './JsonFormatterComponent.less';
 
 function JsonFormatterComponent({jsonText, updateJsonTextFunc}) {
   function parse(str) {
@@ -15,8 +15,19 @@ function JsonFormatterComponent({jsonText, updateJsonTextFunc}) {
 
   return (
     <ApplicationLayout>
-      <Input type='textarea' value={jsonText} onChange={updateJsonTextFunc}/>
-      <JSONTree data={(jsonText && parse(jsonText)) || {}} />
+      <Row className={styles['content--full-height']}>
+        <Col span={12} className={styles['content--full-height']}>
+          <Input type='textarea'
+            placeholder={'请输入要格式化的JSON文本'}
+            value={jsonText} 
+            onChange={updateJsonTextFunc}
+            className={[styles['content--full-height'], styles['textarea--without-radius'], styles['input--without-effect']].join(" ")}
+          />
+        </Col>
+        <Col span={12} className={styles['content--full-height']}> 
+          <JSONTree data={(jsonText && parse(jsonText)) || {'tips': '我格式化啦！(*^_^*)'}}/>
+        </Col>
+      </Row>
     </ApplicationLayout>
   );
 }

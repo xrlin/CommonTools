@@ -1,5 +1,10 @@
 .content--full-height {
     height: 100% !important;
+    // 设置json展示区域铺满屏幕
+    > ul {
+        height: 100%;
+        margin: 0 !important;
+    }
 }
 
 .textarea--without-radius {
@@ -11,23 +16,5 @@
     &:hover, &:focus {
         border-color: #e9e9e9;;
         box-shadow: inherit;
-    }
-}
-
-.markdown__preview {
-    overflow-y: auto;
-    // width: 50%;
-    padding: .5rem;
-    box-sizing: border-box;
-    min-width: 200px;
-    // max-width: 980px;
-    margin: 0 auto;
-
-    ul {
-        list-style-type: disc;
-    }
-
-    ol {
-        list-style-type: decimal;
     }
 }

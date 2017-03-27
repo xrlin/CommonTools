@@ -22,7 +22,7 @@ class ApplicationLayout extends React.Component {
   componentWillMount() {
     hashHistory.listen((event) => {
       let pathName = event.pathname.split('/');
-      if(pathName) {
+      if(pathName[1]) {
         this.state = {menu: pathName[1]};
       }
       document.title = menuMap[this.state.menu];
@@ -43,14 +43,14 @@ class ApplicationLayout extends React.Component {
               selectedKeys={[this.state.menu]}
               style={{ height: '100%' }}
             >
-              <Menu.Item key="markdown"><Link to='/markdown'>Markdown编辑器</Link></Menu.Item>
-              <Menu.Item key="url-converter"><Link to='/url-converter'>URL编码/解码</Link></Menu.Item>
-              <Menu.Item key="encrypter"><Link to='/encrypter'>加密/转码工具</Link></Menu.Item>
-              <Menu.Item key="json-formatter"><Link to='/json-formatter'>JSON格式化</Link></Menu.Item>
+              <Menu.Item key="markdown"><Link to='/markdown'><Icon type="edit" />Markdown编辑器</Link></Menu.Item>
+              <Menu.Item key="url-converter"><Link to='/url-converter'><Icon type="global" />URL编码/解码</Link></Menu.Item>
+              <Menu.Item key="encrypter"><Link to='/encrypter'><Icon type="lock" />加密/转码工具</Link></Menu.Item>
+              <Menu.Item key="json-formatter"><Link to='/json-formatter'><Icon type="rocket" />JSON格式化</Link></Menu.Item>
             </Menu>
           </Sider>
           <Layout>
-            <Content style={{ background: '#fff', margin: 0, minHeight: 280, display: 'flex' }}>
+            <Content style={{ background: '#fff', margin: 0, minHeight: 280, height: '100%' }}>
               {this.props.children}
             </Content>
           </Layout>

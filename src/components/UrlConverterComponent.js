@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import {Button, Icon} from 'antd';
 import ConverterTemplate from './ConverterTemplate';
 import styles from './UrlConverterComponent.css';
+import globalStyle from './ApplicationLayout.css';
 
 const UrlConverterComponent = ({encodedText, decodedText, encodeFunc, updateDecodedTextFunc, updateEncodedTextFunc, decodeFunc}) => (
   <ConverterTemplate
@@ -10,12 +11,14 @@ const UrlConverterComponent = ({encodedText, decodedText, encodeFunc, updateDeco
     updateResultTextFunc={updateEncodedTextFunc}
     updateSourceTextFunc={updateDecodedTextFunc}
   >
-    <Button type="primary" onClick={encodeFunc}>
-      编码<Icon type="right" />
-    </Button>
-    <Button type="primary" onClick={decodeFunc}>
-      <Icon type="left" />解码
-    </Button>
+    <div>
+      <Button type="primary" onClick={encodeFunc} className={globalStyle['button--block']}>
+        编码<Icon type="right" />
+      </Button>
+      <Button type="primary" onClick={decodeFunc} className={globalStyle['button--block']}>
+        <Icon type="left" />解码
+      </Button>
+    </div>
   </ConverterTemplate>
 )
 

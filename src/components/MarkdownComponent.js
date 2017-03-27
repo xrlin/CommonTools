@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import {Input} from 'antd';
+import {Input, Row, Col} from 'antd';
 import {markdown} from 'markdown';
 import Hightlight from 'react-highlight';
 import ApplicationLayout from './ApplicationLayout';
@@ -15,16 +15,23 @@ const MarkdownComponent = ({markdownText, updateMarkdownTextFunc}) => {
 
   return (
     <ApplicationLayout>
-      <Input type="textarea"
-        value={markdownText}
-        className={[styles['content--half'], styles['content--flex'], styles['textarea--without-radius'], styles['input--without-effect']].join(" ")}
-        onChange={updateMarkdownTextFunc}
-      />
-      <div className={[styles.markdown__preview,'markdown-body'].join(' ')}>
-        <Hightlight innerHTML={true}>
-          {markdownText && convertToHtml(markdownText)}
-        </Hightlight>
-      </div>
+      <Row className={styles['content--full-height']}>
+        <Col span={12} className={styles['content--full-height']}>
+          <Input type="textarea"
+            placeholder={'从现在开始写作吧...'}
+            value={markdownText}
+            className={[styles['content--full-height'], styles['textarea--without-radius'], styles['input--without-effect']].join(" ")}
+            onChange={updateMarkdownTextFunc}
+          />
+        </Col>
+        <Col span={12} className={styles['content--full-height']}>
+          <div className={[styles['content--full-height'], styles.markdown__preview,'markdown-body'].join(' ')}>
+            <Hightlight innerHTML={true}>
+              {markdownText && convertToHtml(markdownText)}
+            </Hightlight>
+          </div>
+        </Col>
+      </Row>
     </ApplicationLayout>
   ) 
 }
