@@ -11,7 +11,9 @@
     },
     "production": {
       "extraBabelPlugins": [
-        "transform-runtime"
+        "transform-runtime",
+        ["import", { "libraryName": "antd", "style": "css" }],
+        ["import", { "libraryName": "github-markdown-css", "style": "css" }]
       ]
     }
   }
